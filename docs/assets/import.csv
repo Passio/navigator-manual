@@ -1,0 +1,36 @@
+Route,Stop order,Distance,Latitude,Longitude,Stop Name,ETA
+Tech Shuttle,1,,42.36232,-71.08625,Kendall Square T,"0800, 0830, 0900, 0930"
+Tech Shuttle,2,,42.36119,-71.08472,Wadsworth @ Amherst,"0806, 0860, 0936, 0936"
+Tech Shuttle,3,,42.360293,-71.086846,Media Lab,"0812, 0842, 0912, 0942"
+Tech Shuttle,4,,42.3579,-71.094128,Amherst @ Kresge,"0821, 0851, 0921, 0951"
+Tech Shuttle,5,,42.3559,-71.0991,Burton House,
+Tech Shuttle,6,,42.354976,-71.102743,Tang/Westgate,
+Tech Shuttle,7,,42.354929,-71.1052,W92 @ Amesbury St,
+Tech Shuttle,8,,42.35681,-71.10194,Simmons Hall,
+Tech Shuttle,9,,42.36032,-71.09494,Vassar @ Mass Ave,
+Tech Shuttle,10,,42.36224,-71.09017,Stata Center,
+Saferide Boston East,1,,42.35946,-71.09408,84 Mass Ave,just text
+Saferide Boston East,2,,42.35086,-71.08965,Mass Ave @ Beacon Street,for these
+Saferide Boston East,3,,42.3464,-71.08808,MBTA stop at Newbury,eta's
+Saferide Boston East,4,,42.34911,-71.09465,487 Commonwealth Ave,
+Saferide Boston East,5,,42.3487,-71.09401,478 Commonwealth Ave,
+Saferide Boston East,6,,42.35086,-71.08959,Mass Ave @ Beacon Street,
+Saferide Boston East,7,,42.35929,-71.09373,77 Mass Ave,
+Saferide Boston West,1,,42.35946,-71.09408,84 Mass Ave,
+Saferide Boston West,2,,42.35086,-71.08965,Mass Ave @ Beacon Street,
+Saferide Boston West,3,,42.35047,-71.0912,528 Beacon Street,
+Saferide Boston West,4,,42.34911,-71.09465,487 Commonwealth Ave,
+Saferide Boston West,5,,42.35018,-71.09797,111 Baystate Road,
+Saferide Boston West,6,,42.35036,-71.10057,155 Baystate Road,
+Saferide Boston West,7,,42.3486,-71.1235,58 Manchester street,
+Saferide Boston West,8,,42.34659,-71.11692,259 Saint Paul Street,
+Saferide Boston West,9,,42.35029,-71.08659,32 Hereford Street,
+Saferide Boston West,10,,42.35929,-71.09373,77 Mass Ave,
+Boston Daytime,1,,42.358848,-71.093516,84 Mass. Ave. (MBTA Stop),
+Boston Daytime,2,,42.35086,-71.08965,Mass. Ave./Beacon,
+Boston Daytime,3,,42.34911,-71.09465,487 Comm. Ave. (PSK),
+Boston Daytime,4,,42.34982,-71.100805, Comm Ave @ Sherborn,
+Boston Daytime,5,,42.3487,-71.09401,478 Comm. Ave.,
+Boston Daytime,6,,42.35086,-71.08959,Mass. Ave./Beacon,
+Boston Daytime,7,,42.35929,-71.09373,77 Mass. Ave.,
+Boston Daytime,8,,42.360283,-71.097397,Cross Street @ Albany Street,

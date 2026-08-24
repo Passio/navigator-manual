@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{# base_url is page-relative, so the search assets and result links resolve
+   correctly from any depth in the nav. #}
+{% block extrahead %}
+  {{ super() }}
+  <script>window.MANUAL_BASE = {{ (base_url ~ '/') | tojson }}</script>
+{% endblock %}
