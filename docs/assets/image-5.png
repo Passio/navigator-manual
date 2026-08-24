@@ -32,7 +32,7 @@
   <link rel="preconnect" href="https://github.githubassets.com" crossorigin>
   <link rel="preconnect" href="https://avatars.githubusercontent.com">
 
-<script type="importmap" nonce="CPgTpgOFvNGpSF7hFuJefJi+MeXZUxxG4IvnA0aGpME=">{"imports":{"react":"https://github.githubassets.com/assets/react-d55061672d2143f7.js","scheduler":"https://github.githubassets.com/assets/scheduler-d677f65b41f96812.js","react-dom":"https://github.githubassets.com/assets/react-dom-0305b837a0656bc2.js","react-dom/client":"https://github.githubassets.com/assets/react-dom-client-a497fe3cf4f31b2c.js"}}</script>
+<script type="importmap" nonce="YkQ9xvfp5A88RqxRVdwCiAHFg5jpFrMs8QD7iFQHjCk=">{"imports":{"react":"https://github.githubassets.com/assets/react-d55061672d2143f7.js","scheduler":"https://github.githubassets.com/assets/scheduler-d677f65b41f96812.js","react-dom":"https://github.githubassets.com/assets/react-dom-0305b837a0656bc2.js","react-dom/client":"https://github.githubassets.com/assets/react-dom-client-a497fe3cf4f31b2c.js"}}</script>
 <meta name="react-profiling" content="0" data-turbo-transient="true" />
 <meta name="react-import-map" content="react,react-dom,react-dom/client,react-dom/profiling,scheduler@254e607d6015" data-turbo-track="reload" />
 <link crossorigin="anonymous" rel="modulepreload" href="https://github.githubassets.com/assets/react-d55061672d2143f7.js" />
@@ -109,19 +109,19 @@
   <meta name="route-pattern" content="/user-attachments/assets/:guid" data-turbo-transient>
   <meta name="route-controller" content="attachments_user_assets" data-turbo-transient>
   <meta name="route-action" content="show" data-turbo-transient>
-  <meta name="fetch-nonce" content="v2:86c98045-1378-458b-9d2c-8d690ddc3277">
+  <meta name="fetch-nonce" content="v2:ac47aeee-943c-8911-d0cf-79e6f183578a">
 
     
   <meta name="current-catalog-service-hash" content="9e70e20db0783190eb72f57934e24ee9f173721f4903bd8448a6b85add7c00e9">
 
 
-  <meta name="request-id" content="E2EA:25ACB7:113CE00:1699136:6A8C9DD6" data-turbo-transient="true" /><meta name="html-safe-nonce" content="72237693b50e9488f406d11200b25d853eab34c3b037453825c3cc16f9429191" data-turbo-transient="true" /><meta name="visitor-payload" content="eyJyZWZlcnJlciI6bnVsbCwicmVxdWVzdF9pZCI6IkUyRUE6MjVBQ0I3OjExM0NFMDA6MTY5OTEzNjo2QThDOURENiIsInZpc2l0b3JfaWQiOiI1NjEyNTA2MDY0MTAyMzk5NDQ2IiwicmVnaW9uX2VkZ2UiOiJpYWQiLCJyZWdpb25fcmVuZGVyIjoiY2VudHJhbHVzIn0=" data-turbo-transient="true" /><meta name="visitor-hmac" content="04090900cdff4dda574b74d247a205a154834326adb940d99bc2942f228c9225" data-turbo-transient="true" />
+  <meta name="request-id" content="E316:26E7A2:109C97C:1608B57:6A8C9EB1" data-turbo-transient="true" /><meta name="html-safe-nonce" content="3d4c649b84069696a23450943712b3de23d1ca114134a425fde4f374b0f64376" data-turbo-transient="true" /><meta name="visitor-payload" content="eyJyZWZlcnJlciI6bnVsbCwicmVxdWVzdF9pZCI6IkUzMTY6MjZFN0EyOjEwOUM5N0M6MTYwOEI1Nzo2QThDOUVCMSIsInZpc2l0b3JfaWQiOiI4Njc2MDYxMzE5NTcxMjE4MDk3IiwicmVnaW9uX2VkZ2UiOiJpYWQiLCJyZWdpb25fcmVuZGVyIjoiY2VudHJhbHVzIn0=" data-turbo-transient="true" /><meta name="visitor-hmac" content="fe8ea1c2e66f4ad7b72ad9333b325fb1c0283d8aa77bf87fa3ec545971f5afb1" data-turbo-transient="true" />
 
 
 
 
   <meta name="github-keyboard-shortcuts" content="copilot" data-turbo-transient="true" />
-  <link rel="sso-modal" href="/enterprises/Transit-Technologies/sso_modal" data-turbo-transient="true" /><link rel="sso-session" href="/enterprises/Transit-Technologies/sso_status.json" data-turbo-transient="true" /><meta name="sso-expires-around" content="1787599742" data-turbo-transient="true" />
+  <link rel="sso-modal" href="/enterprises/Transit-Technologies/sso_modal" data-turbo-transient="true" /><link rel="sso-session" href="/enterprises/Transit-Technologies/sso_status.json" data-turbo-transient="true" /><meta name="sso-expires-around" content="1787599961" data-turbo-transient="true" />
 
   <meta name="selected-link" value="/user-attachments/assets/c0c5bdce-3e9a-4d29-baf6-8f431745e117" data-turbo-transient>
   <link rel="assets" href="https://github.githubassets.com/">
@@ -223,7 +223,7 @@
   <meta name="browser-errors-url" content="https://api.github.com/_private/browser/errors">
 
     <meta name="release" content="51490676b790cc0c33c220e6ce7a56749765f08f" data-turbo-track="reload">
-  <meta name="ui-target" content="canary-1">
+  <meta name="ui-target" content="canary-2">
 
   <link rel="mask-icon" href="https://github.githubassets.com/assets/pinned-octocat-093da3e6fa40.svg" color="#000000">
   <link rel="alternate icon" class="js-site-favicon" type="image/png" href="https://github.githubassets.com/favicons/favicon.png">
@@ -289,16 +289,16 @@
         <span class="js-stale-session-flash-signed-out" hidden>You signed out in another tab or window. <a class="Link--inTextBlock" href="">Reload</a> to refresh your session.</span>
         <span class="js-stale-session-flash-switched" hidden>You switched accounts on another tab or window. <a class="Link--inTextBlock" href="">Reload</a> to refresh your session.</span>
 
-    <button id="icon-button-7586e368-2572-4c63-a48c-be4542cf47d3" aria-labelledby="tooltip-fd51ac77-6c87-422a-89f3-94effcfd3ccf" type="button" data-view-component="true" class="Button Button--iconOnly Button--invisible Button--medium flash-close js-flash-close">  <svg aria-hidden="true" data-component="Octicon" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-x Button-visual">
+    <button id="icon-button-f396af7c-d100-4a6f-ab3a-ab1320d3d948" aria-labelledby="tooltip-0c7e8eec-c19e-4ddd-8e15-7aa97a3dcae9" type="button" data-view-component="true" class="Button Button--iconOnly Button--invisible Button--medium flash-close js-flash-close">  <svg aria-hidden="true" data-component="Octicon" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-x Button-visual">
     <path d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L9.06 8l3.22 3.22a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L8 9.06l-3.22 3.22a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06Z"></path>
 </svg>
-</button><tool-tip id="tooltip-fd51ac77-6c87-422a-89f3-94effcfd3ccf" for="icon-button-7586e368-2572-4c63-a48c-be4542cf47d3" popover="manual" data-direction="s" data-type="label" data-view-component="true" class="sr-only position-absolute">Dismiss alert</tool-tip>
+</button><tool-tip id="tooltip-0c7e8eec-c19e-4ddd-8e15-7aa97a3dcae9" for="icon-button-f396af7c-d100-4a6f-ab3a-ab1320d3d948" popover="manual" data-direction="s" data-type="label" data-view-component="true" class="sr-only position-absolute">Dismiss alert</tool-tip>
 
 
   
 </div>
         
-          <include-fragment src="/in-product-messaging/copilot-budget-request-banner?page_path=%2Fuser-attachments%2Fassets%2Fc0c5bdce-3e9a-4d29-baf6-8f431745e117" data-nonce="v2:86c98045-1378-458b-9d2c-8d690ddc3277" data-view-component="true">
+          <include-fragment src="/in-product-messaging/copilot-budget-request-banner?page_path=%2Fuser-attachments%2Fassets%2Fc0c5bdce-3e9a-4d29-baf6-8f431745e117" data-nonce="v2:ac47aeee-943c-8911-d0cf-79e6f183578a" data-view-component="true">
   
   <div data-show-on-forbidden-error hidden>
     <div class="Box">
@@ -314,7 +314,7 @@
 </div>  </div>
 </div>  </div>
 </include-fragment>
-          <include-fragment src="/in-product-messaging/code-scanning-ai-findings-preview-banner?page_path=%2Fuser-attachments%2Fassets%2Fc0c5bdce-3e9a-4d29-baf6-8f431745e117" data-nonce="v2:86c98045-1378-458b-9d2c-8d690ddc3277" data-view-component="true">
+          <include-fragment src="/in-product-messaging/code-scanning-ai-findings-preview-banner?page_path=%2Fuser-attachments%2Fassets%2Fc0c5bdce-3e9a-4d29-baf6-8f431745e117" data-nonce="v2:ac47aeee-943c-8911-d0cf-79e6f183578a" data-view-component="true">
   
   <div data-show-on-forbidden-error hidden>
     <div class="Box">
@@ -345,7 +345,7 @@
 
 
     
-  <notification-shelf-watcher data-base-url="https://github.com/notifications/beta/shelf" data-channel="eyJjIjoibm90aWZpY2F0aW9uLWNoYW5nZWQ6OTMwMTUzIiwidCI6MTc4NzYwMDM0Mn0=--53e6ef2367459eb95569a09965ba501cd16679528143407bb62a8eefb822af0c" data-view-component="true" class="js-socket-channel"></notification-shelf-watcher>
+  <notification-shelf-watcher data-base-url="https://github.com/notifications/beta/shelf" data-channel="eyJjIjoibm90aWZpY2F0aW9uLWNoYW5nZWQ6OTMwMTUzIiwidCI6MTc4NzYwMDU2MX0=--d2fe4ca584f4844af9bd8f1b0eed0a7e5e79596954dc6c6e778bc5123ade0911" data-view-component="true" class="js-socket-channel"></notification-shelf-watcher>
   <div hidden data-initial data-target="notification-shelf-watcher.placeholder"></div>
 
 
@@ -407,7 +407,7 @@
         </p>
 
 
-    <!-- '"` --><!-- </textarea></xmp> --></option></form><form data-turbo="false" data-turbo="false" action="https://github.com/enterprises/Transit-Technologies/saml/initiate?return_to=https%3A%2F%2Fgithub.com%2Fuser-attachments%2Fassets%2Fc0c5bdce-3e9a-4d29-baf6-8f431745e117" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="TZLhp5tI_ESsZb4ll-gKty6oN6vtv0EfiDxYBMbAuhwmuSnEfsmwX6fbTpsxz528PGQtwnai8r6bNbboyOUwIA" />
+    <!-- '"` --><!-- </textarea></xmp> --></option></form><form data-turbo="false" data-turbo="false" action="https://github.com/enterprises/Transit-Technologies/saml/initiate?return_to=https%3A%2F%2Fgithub.com%2Fuser-attachments%2Fassets%2Fc0c5bdce-3e9a-4d29-baf6-8f431745e117" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="8EP_4e-w1v172AWUUch4dDjavtRLYNM8hsUIJpWUGURz2Jm0osP3wvrW62MChbdhpZF__pwmJFzYXQsOh2t31A" />
       
       <input type="hidden" name="add_account" id="add_account" autocomplete="off" class="form-control" />
 
