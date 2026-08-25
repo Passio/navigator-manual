@@ -33,12 +33,23 @@ async function load (onProgress) {
       fetch(root + 'assets/search-index.json').then(d => d.json()),
       fetch(root + 'assets/search-vectors.bin').then(d => d.arrayBuffer())
     ])
+    // A mismatch here is worse than a failure: the scores would still look like
+    // numbers, so a wrong model, a wrong query prefix or a truncated vector file
+    // would quietly return plausible nonsense instead of nothing.
     if (index.model != MODEL)
       throw new Error(`index was built with ${index.model}, expected ${MODEL}`)
+    if (index.prefix != PREFIX)
+      throw new Error('index was built with a different query prefix')
+    var float = new Float32Array(vectors)
+    // Short of this, the dot product reads past the end and every score is NaN.
+    if (float.length != (index.chunk.length * index.dim))
+      throw new Error(`expected ${index.chunk.length * index.dim} floats for ${index.chunk.length} chunks, got ${float.length}`)
     state.index = index
-    state.vectors = new Float32Array(vectors)
+    state.vectors = float
     onProgress('Loading language model (one time, ~30 MB)…')
-    var {pipeline, env} = await import('https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.7.5/dist/transformers.min.js')
+    // Pinned, and manual/embed.js fails the build if the version it embedded the
+    // passages with is not this one.
+    var {pipeline, env} = await import('https://cdn.jsdelivr.net/npm/@huggingface/transformers@4.2.0/dist/transformers.min.js')
     env.allowLocalModels = false
     state.embed = await pipeline('feature-extraction', MODEL, {dtype: 'q8'})
   })().catch(err => {
@@ -70,8 +81,10 @@ function open () {
   var status = el('div', {className: 'nlq-status'})
   var results = el('div', {className: 'nlq-results'})
   var input = el('input', {className: 'nlq-input', type: 'search', placeholder: 'Ask in your own words, e.g. how do I track deadhead miles?', autocomplete: 'off'})
-  var panel = el('div', {className: 'nlq-panel', role: 'dialog', 'ariaLabel': 'Ask the manual'}, [
-    el('div', {className: 'nlq-head'}, [input, el('button', {className: 'nlq-close', textContent: '×', title: 'Close'})]),
+  // ariaModal tells a screen reader to ignore the page behind the panel, and the
+  // close button needs a real name -- "×" reads as nothing useful.
+  var panel = el('div', {className: 'nlq-panel', role: 'dialog', ariaModal: 'true', ariaLabel: 'Ask the manual'}, [
+    el('div', {className: 'nlq-head'}, [input, el('button', {className: 'nlq-close', textContent: '×', title: 'Close', ariaLabel: 'Close'})]),
     status,
     results
   ])
