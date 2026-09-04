@@ -1,3 +1,5 @@
 # Blocks
 
-Help file Job/Block
+## Job/Block
+
+In fixed-route transit, a block is the full day's worth of work assigned to a single vehicle from the moment it pulls out of the garage until it pulls back in. A block chains together one or more trips (individual runs of a route from end to end) along with the deadheads between them, layovers at terminals, and any interlining where the bus switches from one route to another to keep the vehicle productive. Schedulers build blocks to minimize the number of vehicles needed while respecting operational constraints like recovery time, vehicle type requirements, and depot assignments. Once blocks exist, runcutting slices them into runs (the driver-facing pieces of work), which then get bundled into rosters for operator bidding. On the street, blocks are what your CAD/AVL system tracks against: a bus is assigned to a block for the day, and every trip on that block inherits the vehicle, operator, and real-time status from that assignment, which is why block IDs show up everywhere from GTFS feeds to dispatcher screens to reports.
