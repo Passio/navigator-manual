@@ -89,20 +89,43 @@ function open () {
     results
   ])
   var backdrop = el('div', {className: 'nlq-backdrop'}, [panel])
+  // Whatever had focus before the panel opened, so close() can hand it back.
+  var opener = window.document.activeElement
   window.document.body.append(backdrop)
   input.focus()
 
   function close () {
     backdrop.remove()
     window.document.removeEventListener('keydown', onKey)
+    // Without this focus falls back to <body>, so a keyboard reader who presses
+    // Escape resumes from the top of the page having lost their place entirely.
+    if (opener && opener.isConnected)
+      opener.focus()
   }
   function onKey (e) {
     if (e.key == 'Escape')
-      close()
+      return close()
+    if (e.key != 'Tab')
+      return
+    // aria-modal tells a screen reader to ignore the page behind the panel but
+    // does nothing to the tab order, so Tab would walk into content the reader
+    // has just been told is not there. Cycling within the panel is the other half
+    // of the same promise.
+    var focusable = [...panel.querySelectorAll('input, button, a[href]')]
+    var edge = e.shiftKey? focusable[0]: focusable[focusable.length - 1]
+    if (!focusable.length || (window.document.activeElement != edge))
+      return
+    e.preventDefault()
+    var wrap = e.shiftKey? focusable[focusable.length - 1]: focusable[0]
+    wrap.focus()
   }
   window.document.addEventListener('keydown', onKey)
   backdrop.addEventListener('click', e => {
-    if ((e.target == backdrop) || e.target.classList.contains('nlq-close'))
+    // Following a result has to close the panel explicitly. navigation.instant
+    // swaps the page content without a reload, and the backdrop is appended to
+    // <body> outside what gets swapped, so otherwise it would sit there covering
+    // the page the reader just chose.
+    if ((e.target == backdrop) || e.target.classList.contains('nlq-close') || e.target.closest('.nlq-hit'))
       close()
   })
 

@@ -8,6 +8,19 @@ https://www.transit.dot.gov/ntd
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Settings
 
 **Filter by Calamp Ignition Events**: This setting should always be unchecked. This is intended to utilize ignition events from Calamp devices to filter out records that should not be captured for NTD reporting. However, Calamp ignition events are unreliable. By keeping this setting unchecked, the system will not rely on these ignition events and will instead use more reliable methods such as dead reckoning and Yard geofences to correctly filter out records that should not be considered for NTD reporting. 
@@ -118,6 +131,28 @@ The total number of miles traveled by all passengers during the specified period
 The average distance traveled per passenger during the specified period.
 
      [PASSENGER MILES TRAVELED] / [UNLINKED PASSENGER TRIPS] = [PASSENGER TRIP LENGTH]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 **VOMS (Vehicles Operated in Annual Maximum Service)** A system wide metric designed to use the selected timeframe to calculate the metric (it is not per route). For example, if you select 'Last Month', VOMS would reflect that time period.

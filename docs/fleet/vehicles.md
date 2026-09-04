@@ -68,6 +68,25 @@ For each vehicle
 9. Verify "GTFS RT (Occupancy Status)" now has the Vehicle ID in the label.
 10. Click Save Vehicle
 
+
+## Vestige Integration
+
+Here is how to configure vehicles for Vestige Live Stream integration
+
+For each vehicle
+
+1. Go to Configuration > Vehicles.
+2. Click the vehicle name to open vehicle detail.
+3. Click Edit on vehicle detail.
+4. At External Providers, click "Add"
+5. From the list, select "Vestige"
+6. Once added, click "Vestige" to show External Provider detail
+7. In the window that opened up, type the Vehicle ID from Vestige (It is a long string called a GUID or UUID)
+8. Click Save. The window will dismiss
+9. Verify "Vestige" now has the Vehicle ID in the label.
+10. Click Save Vehicle
+
+
 ## Revecorp TransitCheck Integration
 
 For each vehicle

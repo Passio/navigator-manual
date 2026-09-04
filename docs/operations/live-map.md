@@ -20,7 +20,7 @@ In addition to the Layers, other filters include Routes, Vehicles, Devices, Inci
 
 To view a different day, click the date-time at the bottom of the screen, select the desired date from the pop-up calendar, and then click **Snapshot**.
 
-![](../assets/image-7.png)
+
 
 
 Once the data is loaded, use the **scrubbers** and **playhead** to control the amount of data displayed.
@@ -28,17 +28,17 @@ Once the data is loaded, use the **scrubbers** and **playhead** to control the a
 - The **scrubbers** on either end of the green bar adjust the start and end times of the displayed data.  
 - The **playhead** controls the exact point in time reflected on the map, showing each vehicle’s location at that moment. You can move the playhead by clicking and dragging it or by using the **play**, **fast-forward**, or **super fast-forward** buttons to advance the timeline.
 
-![image](../assets/image-4.png)
+
 
 
 Clicking on a vehicle displays its status at that exact time. If you leave the information window open while changing the time, the data for that vehicle will update accordingly.
 
 Clicking on a **cookie-crumb** data point reveals details about the vehicle that dropped that crumb.
 
-![image](../assets/image-5.png)
+
 
 
 By default, **cookie-crumb data** and **incidents** are loaded. To view additional information, click the **Layers** button and select the desired data. The **Stop Geofence** layer is particularly useful for seeing when a vehicle entered an exact stop radius.
 
-![image](../assets/image-6.png)
+
 

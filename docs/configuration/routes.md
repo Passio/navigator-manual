@@ -10,6 +10,13 @@ Route Block systems, sometimes referred to as Shuttle systems, contain Routes th
 
 
 
+
+
+
+
+
+
+
 Routes have several properties that are used depending on the type of system running and the agency's preferences. The tool tips on the field labels should help identify their use.  
   
   <p>Pad & Pencil Icon - Edit Segment properties</p>
