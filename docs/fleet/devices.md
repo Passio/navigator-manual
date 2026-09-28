@@ -114,15 +114,38 @@ The integration connects the **Mobile Data Terminal (MDT)** with the **UTA Autom
    A hosted API endpoint (documented at [https://passio.github.io/API/uta](https://passio.github.io/API/uta)) retrieves the raw data from the `utaLog` table. The API normalizes string values (to correct malformed inputs), appends vehicle location information, and exposes a **JSON feed** of passenger count data.  
 
 4. **UTA Consumption**  
-   UTA accesses the API feed using an automated script, which consumes the JSON data for its internal reporting and analysis processes.  
+   UTA accesses the API feed using an automated script, which consumes the JSON data for its internal reporting and analysis processes.
 
 
-## Flow chart
-```mermaid
-flowchart TD
-    A[Start] --> B{Is it working?}
-    B -->|Yes| C[Continue]
-    B -->|No| D[Fix it]
-    D --> B
-    C --> E[Finish]
-```
+### Enabling MPM UDP Display on an MDT Device
+
+#### Before you start
+- The MDT needs firmware **0.35.00 or later**. That's the minimum for `sendToMpm`.
+- Use **0.35.06 or later** if you can, since it fixes a bug where stops showed in the wrong order during AVA approach.
+- The MPM sign has to be reachable from the MDT on the vehicle network.
+
+#### Steps
+1. In Navigator, open the account's **Devices** list and edit the MDT device.
+2. Expand section GPIO/REI/door/buttons
+3. Check **Send to MPM UDP Display**.
+4. Set **MPM Target IP:PORT**  if the sign isn't at the default.
+   - The default is the IP shown in the MPM Target IP:PORT field hint.
+   - Enter it as `IP:PORT` only, with no `http://`.
+5. Save. The config gets pushed to the device. If it doesn't pick up the change, restart the MDT app.
+
+#### Check that it's working
+1. On the MDT, open the **System Status** screen, or send the **info** command. Both show MPM UDP status (added in 0.35.03).
+2. Start a route. The sign should show:
+   - the next 5 trip-based stops, refreshed every 15 seconds
+   - the destination
+   - "Route End" at the end of the trip
+3. Test stop request. If a GPIO stop request is configured, pressing it should show on the sign, and the door trigger should clear it.
+4. Drive out of a stop's geofence. The current stop should drop off the sign.
+
+#### If nothing shows up
+- Check the firmware version first.
+- Confirm the IP and port match the sign and that the MDT can reach that subnet.
+- Look at the MPM ledLog on the device for what's being sent (added in 0.35.01).
+
+
+
