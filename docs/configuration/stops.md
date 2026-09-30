@@ -37,6 +37,10 @@ HIDDEN STOP - these are stops that are hidden from the public but are used for a
 ## Stop Properties CAD/AVL
 * Multiple routes may use the same stop_id, however if the route is going in the opposite or distinctly different direction, a separate stop_id should be used.
 * Some stops may have a **green exclamation mark** to the right of the stop name. This means that the stops were imported, and these are identified as 'newly' imported stops.
+* The **Routes** list on the stop form shows every route that includes this stop, including routes where the stop has been archived. A route appearing in this list does not mean the stop is currently active on that route.
+* A **folder icon** next to a route name means the route itself is archived. It does not show whether the stop is archived on that route.
+* The same route name may appear more than once. Each entry is a separate route record, for example an active route and an older archived copy with the same name.
+* To confirm whether a stop is active on a route, click the route name to open it and review the route's stop list. Stops that are archived on that route are marked with a folder icon there.
 * **Stops have many properties**, most of which are optional but potentially helpful for the riders, and often are dependent on the solutions purchased.
 * Within Passio Navigator a user can hover over the stop labels to view the Tool Tops will define each field.
 
