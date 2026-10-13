@@ -148,4 +148,81 @@ The integration connects the **Mobile Data Terminal (MDT)** with the **UTA Autom
 - Look at the MPM ledLog on the device for what's being sent (added in 0.35.01).
 
 
+## Oracle Onboarding
+
+### What Oracle does
+
+Oracle is the service that tracks where each bus is in its schedule. Passio sends Oracle the bus's GPS points along with the agency's schedule. Oracle uses them to:
+
+- **Assign the trip.** Once dispatch or the driver puts the bus on a block, Oracle moves the bus to the next trip as each loop starts.
+- **Detect stop arrivals.** Oracle marks each stop as the bus reaches it, and that drives the current stop shown on the MDT.
+- **Predict arrivals.** Oracle generates ETAs from the trip and the bus's position.
+
+Oracle can run in two modes:
+
+- **Full mode:** Oracle's trip and stop updates are written to the bus and sent to the MDT. Oracle is the source of assignments, and the MDT's own automatic updates are ignored.
+- **Observation mode:** Oracle runs alongside the current system, and its updates are saved separately for comparison. The MDT and vMDT keep handling assignments as they do today.
+
+Oracle only uses GPS from the bus's primary GPS device. Points marked secondary or manual are not sent to Oracle, so the device settings below decide which GPS Oracle gets.
+
+### Agency setup
+
+These are set in the agency's user properties.
+
+#### Full Oracle mode
+
+- **Oracle ETA enabled** = true
+- **Oracle Assignments enabled** = true
+- **Use only VMDT assignments** = true (turns on automatically with Oracle Assignments enabled)
+- **Oracle max backlog** = 500
+- **Oracle trace look-back (seconds)** = 600
+
+#### Oracle observation mode
+
+- **Oracle ETA enabled** = true
+- **Oracle Assignments enabled** = false
+- **Use only VMDT assignments** = false (unless already true)
+- **Oracle max backlog** = 500
+- **Oracle trace look-back (seconds)** = 600
+
+#### Notes
+
+- Turning on **Oracle ETA enabled** starts setup with Oracle right away: it syncs the schedule and registers the agency's buses. Configure the buses first.
+- While **Oracle Assignments enabled** is on, **Use only VMDT assignments**
+- To move an agency from full mode back to observation mode, change the settings in this order:
+  1. Uncheck **Oracle Assignments enabled**. This unlocks the next setting.
+  2. Uncheck **Use only VMDT assignments**.
+
+  If only the first step is done, the MDT will not advance stops.
+
+### Bus setup
+
+#### Bus with an MDT and a CalAmp/Pepwave
+
+1. Upgrade the MDT firmware to 42.05.
+2. On the MDT, check **Oracle-enabled device**.
+3. Make sure there is only one active MDT on the bus.
+4. On the CalAmp/Pepwave for that bus, check **Process incoming GPS**.
+5. On the CalAmp/Pepwave, uncheck **Mark GPS as secondary**.
+6. On the CalAmp/Pepwave, uncheck **Enable virtual MDT**.
+7. Make sure no other active GPS device on the bus is sending primary GPS.
+
+#### Bus with only an MDT
+
+1. Upgrade the MDT firmware to 42.05.
+2. On the MDT, check **Oracle-enabled device**.
+3. Make sure there is only one active MDT on the bus.
+4. On the MDT, check **Process incoming GPS**.
+5. On the MDT, uncheck **Mark GPS as secondary**.
+6. On the MDT, set **Location upload int.** to 2.
+7. On the MDT, check **Force Location upload**.
+8. On the MDT, uncheck **Enable virtual MDT**.
+
+#### Notes
+
+- **Oracle-enabled device** only takes effect on the MDT record. Checking it on the CalAmp or Pepwave does nothing.
+- If a bus has more than one active MDT, Oracle uses whichever one reported  or replaced tablets so the bus doesn't switch between Oracle and the vMDTduring the day.
+- The agency must have **Oracle ETA enabled** for the device setting to take
+
+
 
