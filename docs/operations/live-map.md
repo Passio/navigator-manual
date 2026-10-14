@@ -42,3 +42,73 @@ By default, **cookie-crumb data** and **incidents** are loaded. To view addition
 
 
 
+
+## ETA Settings
+
+These settings control where ETAs come from for the ETA API, GTFS RT Trip Updates, text-to-ETA, and the stop markers on the map.
+
+### ETA version
+
+Picks the engine that produces ETA predictions. Clients are normally set to version 2. A new client starts on version 1 until someone changes it.
+
+#### Version 2 (v2)
+
+Use for clients with blocks. v2 predicts arrivals from the schedule for the bus's block:
+
+1. Loads the schedule for the bus's block.
+2. Finds the bus's current trip and stop in that schedule.
+3. Adds up the scheduled travel times to each stop ahead, adjusting if the bus is running late.
+
+v2 recalculates when a bus arrives at or leaves a stop, and once a minute while it is sitting at a stop.
+
+**Without blocks:** v2 can only fall back to the route's timepoints, or to the route's transit time and calendar, and it often produces no ETAs. For clients without blocks, use version 1 with both GO endpoint settings on.
+
+Saving version 2 also turns on **GO ETA use table**. Switching back to version 1 does not turn it off.
+
+#### Version 1 (v1)
+
+The original engine. It doesn't need a schedule or blocks. Use it for clients without blocks.
+
+#### Version 4
+
+Oracle clients have their ETAs stored as version 4.
+
+### ETA API and GTFS RT - use GO ETA endpoint directly
+
+Instead of reading stored predictions, the ETA API asks GO for live ETAs, so riders get the same numbers they see in the GO app. This covers:
+
+- ETA API
+- GTFS RT Trip Updates
+- Text-to-ETA
+
+Requirements:
+
+- **ETA version must be 1.** On version 2 this setting does nothing.
+- **ETA based on timetable must be off.** That setting takes priority.
+
+Limits:
+
+- No next-trip predictions.
+- No scheduled times in the output.
+
+Use this for clients without blocks, where v2 can't produce ETAs.
+
+### ETA marker - use GO ETA endpoint directly
+
+Only controls the ETA popup on stop markers in the map. When it's on, the popup shows GO's live ETAs instead of the ETA API's.
+
+- Works on any ETA version.
+- Needs **Show stop ETA's** turned on, or no popup appears.
+- Admins always see every ETA source in the popup, whatever this setting say
+- Does not change the ETA API, GTFS RT, or text-to-ETA.
+
+### Common setups
+
+| Client | ETA version | ETA API and GTFS RT - GO endpoint | ETA marker - GO endpoint | ETA based on timetable |
+|---|---|---|---|---|
+| Has blocks | 2 | Off | Off | Off |
+| No blocks | 1 | On | On | Off |
+
+Turn both GO endpoint settings on or off together. If only one is on, the map and text-to-ETA can show different times for the same stop.
+
+Changes take up to about a minute to show up because of caching.
