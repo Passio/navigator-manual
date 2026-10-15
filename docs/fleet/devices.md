@@ -51,7 +51,7 @@ Mark as secondary has two main use cases
 1. Testing a new CalAmp config and not wanting to have the data go into production
 2. For Telematic only devices (legacy now since telematic data does not go into location table any more)
 
->[!TIP]
+
 > ### Tips and Other Information
 > - Whenever the tablet undergoes a factory reset, it generates a new hardware ID upon reconnecting to Passio Platform. Be sure to reconcile this when troubleshooting a device.
 
@@ -60,24 +60,11 @@ Mark as secondary has two main use cases
 > ### Mark as Secondary
 > This will mark incoming locations from this device as secondary in the database (`more` = `{'secondary' : 1}`) so they will not show up in Reports/LiveMap/GTFS/Web Sockets/Passio GO or any other place where locations are used.
 
+  
 - The device that is the primary GPS device should also have `Enable virtual MDT` and `VMDT go IS at first stop` enabled. This will process the incoming GPS on the server and will advance stop/trip assignments as the vehicle enters geofences. vMDT by itself cannot put a vehicle into service unless `VMDT go IS at first stop` is enabled. This flag will look at the geofence the vehicle just entered and look to see if it is the first stop of a trip. If so, it will look to see if the vehicle is OOS. If so, vMDT will put the vehicle into revenue service.
+> A bus should only have 1 device marked as vMDT
 
-```mermaid
-graph TD
-    A[Primary GPS Device] -->|Has| B[Enable Virtual MDT]
-    A -->|Has| C[VMDT go IS at First Stop]
-    B & C -->|Processes incoming GPS| D[Server Advances Stop/Trip Assignments]
-    
-    C -->|Checks Geofence Entry| E[Is it the First Stop of a Trip?]
-    E -->|Yes| F[Check Vehicle Status]
-    F -->|Is OOS?| G[Put Vehicle into Revenue Service]
-    E -->|No| H[Do Nothing]
-    
-    subgraph "Conditions"
-        E
-        F
-    end
-```
+
 
 - If the MDT is switched to `Process incoming GPS`, the MDT must be rebooted before it will begin sending GPS.
 ### Connect Driver Steps
