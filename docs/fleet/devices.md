@@ -145,10 +145,31 @@ Oracle is the service that tracks where each bus is in its schedule. Passio send
 - **Detect stop arrivals.** Oracle marks each stop as the bus reaches it, and that drives the current stop shown on the MDT.
 - **Predict arrivals.** Oracle generates ETAs from the trip and the bus's position.
 
-Oracle can run in two modes:
+Oracle can run in two modes. The mode is set for the whole agency. Only buses with **Oracle-enabled device** checked on their MDT use Oracle. Every other bus in the agency keeps working as it does today.
 
-- **Full mode:** Oracle's trip and stop updates are written to the bus and sent to the MDT. Oracle is the source of assignments, and the MDT's own automatic updates are ignored.
-- **Observation mode:** Oracle runs alongside the current system, and its updates are saved separately for comparison. The MDT and vMDT keep handling assignments as they do today.
+#### Assignment mode
+
+**Why:** once Oracle's results have been validated, Oracle becomes the single source of trip and stop assignments for its buses.
+
+**How:**
+
+- Oracle's trip and stop updates are written to the bus and its assignment history, so they're what dispatch, the live map, the MDT and reports show.
+- The MDT's own automatic trip and stop changes are ignored, and the vMDT is turned off for these buses. That way only one system is writing the bus's assignment.
+- Drivers and dispatchers still put the bus on a block, at MDT login or from dispatch. That assignment goes to Oracle first.
+
+#### Observation mode
+
+**Why:** to check Oracle's results against what actually happened before Oracle is allowed to change anything dispatch, drivers or riders see.
+
+**How:**
+
+- Passio sends Oracle the same GPS and block assignments it would get in assignment mode.
+- Oracle's trip and stop assignments are stored in a separate table, not on the bus. That way they can be manually validated, stop by stop, against the bus's GPS and the production assignments.
+- The MDT and vMDT keep handling assignments exactly as they do today.
+
+#### ETAs in both modes
+
+Oracle's ETAs are stored side by side with the production ETAs, so the two can be compared for the same bus, trip and stop. Which version is used depends on the agency's configuration.
 
 Oracle only uses GPS from the bus's primary GPS device. Points marked secondary or manual are not sent to Oracle, so the device settings below decide which GPS Oracle gets.
 
@@ -156,7 +177,7 @@ Oracle only uses GPS from the bus's primary GPS device. Points marked secondary 
 
 These are set in the agency's user properties.
 
-#### Full Oracle mode
+#### Oracle assignment mode
 
 - **Oracle ETA enabled** = true
 - **Oracle Assignments enabled** = true
@@ -175,12 +196,12 @@ These are set in the agency's user properties.
 #### Notes
 
 - Turning on **Oracle ETA enabled** starts setup with Oracle right away: it syncs the schedule and registers the agency's buses. Configure the buses first.
-- While **Oracle Assignments enabled** is on, **Use only VMDT assignments**
-- To move an agency from full mode back to observation mode, change the settings in this order:
-  1. Uncheck **Oracle Assignments enabled**. This unlocks the next setting.
-  2. Uncheck **Use only VMDT assignments**.
+- While **Oracle Assignments enabled** is on, **Use only VMDT assignments** stays checked and can't be unchecked.
+- To move an agency from assignment mode back to observation mode, change the settings in this order:
+    1. Uncheck **Oracle Assignments enabled**. This unlocks the next setting.
+    2. Uncheck **Use only VMDT assignments**.
 
-  If only the first step is done, the MDT will not advance stops.
+    If only the first step is done, the MDT will not advance stops.
 
 ### Bus setup
 
@@ -208,8 +229,8 @@ These are set in the agency's user properties.
 #### Notes
 
 - **Oracle-enabled device** only takes effect on the MDT record. Checking it on the CalAmp or Pepwave does nothing.
-- If a bus has more than one active MDT, Oracle uses whichever one reported  or replaced tablets so the bus doesn't switch between Oracle and the vMDTduring the day.
-- The agency must have **Oracle ETA enabled** for the device setting to take
+- If a bus has more than one active MDT, Oracle uses whichever one reported most recently. Remove old or replaced tablets so the bus doesn't switch between Oracle and the vMDT during the day.
+- The agency must have **Oracle ETA enabled** for the device setting to take effect.
 
 
 
