@@ -145,7 +145,7 @@ Oracle is the service that tracks where each bus is in its schedule. Passio send
 - **Detect stop arrivals.** Oracle marks each stop as the bus reaches it, and that drives the current stop shown on the MDT.
 - **Predict arrivals.** Oracle generates ETAs from the trip and the bus's position.
 
-Oracle can run in two modes. The mode is set for the whole agency. Only buses with **Oracle-enabled device** checked on their MDT use Oracle. Every other bus in the agency keeps working as it does today.
+Oracle can run in assignment or observation mode.
 
 #### Assignment mode
 
