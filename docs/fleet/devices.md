@@ -163,6 +163,7 @@ Oracle can run in assignment or observation mode.
 
 **How:**
 
+- Only buses whose MDT has **Oracle-enabled device** checked are sent to Oracle. Without it, the bus's block assignments and GPS are never sent, and nothing shows up in the observation table for that bus.
 - Passio sends Oracle the same GPS and block assignments it would get in assignment mode.
 - Oracle's trip and stop assignments are stored in a separate table, not on the bus. That way they can be manually validated, stop by stop, against the bus's GPS and the production assignments.
 - The MDT and vMDT keep handling assignments exactly as they do today.
@@ -229,8 +230,9 @@ These are set in the agency's user properties.
 #### Notes
 
 - **Oracle-enabled device** only takes effect on the MDT record. Checking it on the CalAmp or Pepwave does nothing.
+- **Oracle-enabled device** is required in both modes. If it's unchecked, Passio sends Oracle neither the bus's block assignments nor its GPS.
 - If a bus has more than one active MDT, Oracle uses whichever one reported most recently. Remove old or replaced tablets so the bus doesn't switch between Oracle and the vMDT during the day.
-- The agency must have **Oracle ETA enabled** for the device setting to take effect.
+- The agency must have **Oracle ETA enabled** for the device setting to take effect. Both are needed: the agency setting turns Oracle on for the agency, and the device setting picks which buses are sent.
 
 
 
