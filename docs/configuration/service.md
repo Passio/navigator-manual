@@ -258,6 +258,20 @@ The Services feature is very flexible. It's features include the ability to defi
      - Go to Rider application
      - Select services dropdown
      - Membership required is now displayed from the dropdown for services
+
+## GTFS-Flex Booking Rules
+
+The Booking Rules panel on the Service form describes how far ahead riders must book, in the terms GTFS-Flex uses for booking_rules.txt. **Booking type** selects which of the other fields apply, the rest are hidden.
+
+- **Real-time** - riders book on demand with no advance notice. No booking window field applies.
+- **Same-day** - riders book on the day of travel, a number of minutes ahead. Set **Min advance booking**, for example 30 minutes. Set **Max advance booking** when booking also closes a set time ahead, for example 240 minutes. Leave Max blank to use **First booking day** and **First booking time** instead, for example booking opens at 08:00:00 on the day of travel (day 0).
+- **Prior days** - riders book on an earlier day. Set **Last booking day** and **Last booking time**, for example 1 day before travel at 17:00:00. Optionally add **First booking day** and **First booking time** to say when booking opens, for example 14 days before travel at 00:00:00.
+
+Days count back from the day of travel, so 0 is the travel day and 1 is the day before. Times use HH:MM:SS, and an hour of 24 or more means the next day. First booking day and time must be filled in together, as must Last booking day and time.
+
+**Booking instructions** is free text shown to riders alongside the rule, for example a phone number and office hours. It applies to every booking type. The Service Group **Booking rules** text is the older freeform version of the same information, and the fields on this form take precedence over it.
+
+Booking rules are stored but are not part of the GTFS export yet (#7052).
   
     
      
