@@ -209,7 +209,7 @@ These are set in the agency's user properties.
 #### Bus with an MDT and a CalAmp/Pepwave
 
 1. Upgrade the MDT firmware to 42.05.
-2. On the MDT, check **Oracle-enabled device**.
+2. On the vehicle (Configuration > Vehicles > System Settings), check **Oracle-enabled vehicle**.
 3. Make sure there is only one active MDT on the bus.
 4. On the CalAmp/Pepwave for that bus, check **Process incoming GPS**.
 5. On the CalAmp/Pepwave, uncheck **Mark GPS as secondary**.
@@ -219,7 +219,7 @@ These are set in the agency's user properties.
 #### Bus with only an MDT
 
 1. Upgrade the MDT firmware to 42.05.
-2. On the MDT, check **Oracle-enabled device**.
+2. On the vehicle (Configuration > Vehicles > System Settings), check **Oracle-enabled vehicle**.
 3. Make sure there is only one active MDT on the bus.
 4. On the MDT, check **Process incoming GPS**.
 5. On the MDT, uncheck **Mark GPS as secondary**.
@@ -227,12 +227,20 @@ These are set in the agency's user properties.
 7. On the MDT, check **Force Location upload**.
 8. On the MDT, uncheck **Enable virtual MDT**.
 
+#### Bus with only a CalAmp/Pepwave (no MDT)
+
+The dispatcher does the block assignments for these buses from Dispatch & Messaging.
+
+1. On the vehicle (Configuration > Vehicles > System Settings), check **Oracle-enabled vehicle**.
+2. On the CalAmp/Pepwave, check **Process incoming GPS**.
+3. On the CalAmp/Pepwave, uncheck **Mark GPS as secondary**.
+4. On the CalAmp/Pepwave, uncheck **Enable virtual MDT**.
+5. Make sure no other active GPS device on the bus is sending primary GPS.
+
 #### Notes
 
-- **Oracle-enabled device** only takes effect on the MDT record. Checking it on the CalAmp or Pepwave does nothing.
-- **Oracle-enabled device** is required in both modes. If it's unchecked, Passio sends Oracle neither the bus's block assignments nor its GPS.
-- If a bus has more than one active MDT, Oracle uses whichever one reported most recently. Remove old or replaced tablets so the bus doesn't switch between Oracle and the vMDT during the day.
-- The agency must have **Oracle ETA enabled** for the device setting to take effect. Both are needed: the agency setting turns Oracle on for the agency, and the device setting picks which buses are sent.
+- **Oracle-enabled vehicle** is a setting on the vehicle, so it applies to the bus no matter which or how many devices are on it.
+- The agency must have **Oracle ETA enabled** for the vehicle setting to take effect.
 
 
 
