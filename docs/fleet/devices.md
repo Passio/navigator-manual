@@ -226,7 +226,6 @@ These are set in the agency's user properties.
 2. On the vehicle (Configuration > Vehicles > Edit), check **Oracle-enabled vehicle**.
 3. Make sure there is an active GPS device on the bus
 
-> [!NOTE]
 > It is no longer needed to disabled vMDT
 
 
