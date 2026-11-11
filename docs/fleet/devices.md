@@ -64,6 +64,20 @@ Mark as secondary has two main use cases
 - The device that is the primary GPS device should also have `Enable virtual MDT` and `VMDT go IS at first stop` enabled. This will process the incoming GPS on the server and will advance stop/trip assignments as the vehicle enters geofences. vMDT by itself cannot put a vehicle into service unless `VMDT go IS at first stop` is enabled. This flag will look at the geofence the vehicle just entered and look to see if it is the first stop of a trip. If so, it will look to see if the vehicle is OOS. If so, vMDT will put the vehicle into revenue service.
 > A bus should only have 1 device marked as vMDT
 
+### Moving GPS to the MDT for troubleshooting
+
+If a bus has a CalAmp or Pepwave, that device should be the bus's active GPS device. Moving GPS to the MDT is a short-term troubleshooting step only. It is not a fix.
+
+1. Do not uncheck `Process incoming GPS` on the CalAmp/Pepwave. Leave GPS on so the device keeps reporting while you troubleshoot. You can still see where it is reporting on LiveMap by selecting that device.
+2. On the CalAmp/Pepwave, check `Mark GPS as secondary`.
+3. On the MDT, check `Process incoming GPS`, then reboot the MDT. The MDT will not send GPS until it is rebooted.
+4. Set a reminder for one week out to check whether the CalAmp/Pepwave is still having issues.
+5. When the reminder comes up:
+   - If the CalAmp/Pepwave is working, uncheck `Mark GPS as secondary` so it is the active GPS device again.
+   - If it is still having issues, keep troubleshooting or get the device repaired or replaced, and set another one-week reminder.
+
+Never leave the MDT as the bus's active GPS device as an ongoing solution.
+
 
 
 - If the MDT is switched to `Process incoming GPS`, the MDT must be rebooted before it will begin sending GPS.
@@ -154,7 +168,7 @@ Oracle can run in assignment or observation mode.
 **How:**
 
 - Oracle's trip and stop updates are written to the bus and its assignment history, so they're what dispatch, the live map, the MDT and reports show.
-- The MDT's own automatic trip and stop changes are ignored, and the vMDT is turned off for these buses. That way only one system is writing the bus's assignment.
+- The MDT's own automatic trip and stop changes are ignored, and the vMDT is ignored for these buses. That way only one system is writing the bus's assignment.
 - Drivers and dispatchers still put the bus on a block, at MDT login or from dispatch. That assignment goes to Oracle first.
 
 #### Observation mode
@@ -208,34 +222,13 @@ These are set in the agency's user properties.
 
 #### Bus with an MDT and a CalAmp/Pepwave
 
-1. Upgrade the MDT firmware to 42.05.
-2. On the vehicle (Configuration > Vehicles > System Settings), check **Oracle-enabled vehicle**.
-3. Make sure there is only one active MDT on the bus.
-4. On the CalAmp/Pepwave for that bus, check **Process incoming GPS**.
-5. On the CalAmp/Pepwave, uncheck **Mark GPS as secondary**.
-6. On the CalAmp/Pepwave, uncheck **Enable virtual MDT**.
-7. Make sure no other active GPS device on the bus is sending primary GPS.
+1. Upgrade the MDT firmware to 42.05 (if needed)
+2. On the vehicle (Configuration > Vehicles > Edit), check **Oracle-enabled vehicle**.
+3. Make sure there is an active GPS device on the bus
 
-#### Bus with only an MDT
+> [!NOTE]
+> It is no longer needed to disabled vMDT
 
-1. Upgrade the MDT firmware to 42.05.
-2. On the vehicle (Configuration > Vehicles > System Settings), check **Oracle-enabled vehicle**.
-3. Make sure there is only one active MDT on the bus.
-4. On the MDT, check **Process incoming GPS**.
-5. On the MDT, uncheck **Mark GPS as secondary**.
-6. On the MDT, set **Location upload int.** to 2.
-7. On the MDT, check **Force Location upload**.
-8. On the MDT, uncheck **Enable virtual MDT**.
-
-#### Bus with only a CalAmp/Pepwave (no MDT)
-
-The dispatcher does the block assignments for these buses from Dispatch & Messaging.
-
-1. On the vehicle (Configuration > Vehicles > System Settings), check **Oracle-enabled vehicle**.
-2. On the CalAmp/Pepwave, check **Process incoming GPS**.
-3. On the CalAmp/Pepwave, uncheck **Mark GPS as secondary**.
-4. On the CalAmp/Pepwave, uncheck **Enable virtual MDT**.
-5. Make sure no other active GPS device on the bus is sending primary GPS.
 
 #### Notes
 
