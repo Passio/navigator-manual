@@ -22,8 +22,14 @@ Off by default, enabled per account with the ‘Enable GTFS-Flex export’ setti
 
 Exported: locations.geojson with one ‘area_{geofenceId}’ feature per service area geofence, and the location_id, start_pickup_drop_off_window and end_pickup_drop_off_window fields in stop_times.txt.
 
-A flex trip keeps its own trip_id, so GTFS-RT vehicle positions and trip updates still join to the static feed. A single service area gets two stop_times rows on the same location, pickup on the first and drop off on the second, the GTFS-Flex ‘on-demand service within a single zone’ pattern. Several service areas get one stop_times row per service area, sorted by geofence id, with pickup and drop off on every row, the ‘on-demand services across multiple zones’ pattern.
+A flex trip keeps its own trip_id, so its stop_times rows join to the trip ids GTFS-RT uses, but on-demand trips are not published in GTFS-RT, see below. A single service area gets two stop_times rows on the same location, pickup on the first and drop off on the second, the GTFS-Flex ‘on-demand service within a single zone’ pattern. Several service areas get one stop_times row per service area, sorted by geofence id, with pickup and drop off on every row, the ‘on-demand services across multiple zones’ pattern.
 
 Not exported yet: booking_rules.txt (#7052) and continuous_pickup / continuous_drop_off (#7051). The service Booking Rules fields are stored but do not reach the feed.
 
 Only route group services with a service area geofence produce flex stop times. When the feed exports none, the three stop_times.txt fields are omitted and locations.geojson is left out of google_transit.zip. The locations.geojson endpoint answers 404.
+
+
+## GTFS-RT and on-demand services
+Vehicle positions and trip updates leave out on-demand trips. On an on-demand trip every stop is a rider's pickup or drop off, and a public feed, archived by third parties, would show where riders live or travel. A GTFS-RT stop time update also has no way to reference a locations.geojson zone.
+
+A route is on-demand when ‘On-demand’ is checked on the route, or when it is on a GTFS route group with a service that has a service area. That is the GTFS-Flex export rule, but it applies whether or not ‘Enable GTFS-Flex export’ is on, and a service area geofence that is deleted or has an invalid shape still counts, the vehicle stays hidden. Deviated fixed routes are published as before. Service alerts are not affected.
